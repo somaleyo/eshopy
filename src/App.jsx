@@ -25,10 +25,10 @@ function App() {
         <p><a href="">Scan</a></p>
         </div>
         <div className="card">
-        <FontAwesomeIcon icon={faBasketShopping} />
+        <FontAwesomeIcon className='shop' icon={faBasketShopping} />
         <p>0</p>
 
-        <FontAwesomeIcon icon={faHeart} />
+        <FontAwesomeIcon className='coeur' icon={faHeart} />
         <p>0</p>
         </div>
       </nav>
