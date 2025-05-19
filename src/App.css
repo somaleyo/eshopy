@@ -41,7 +41,7 @@ nav{
 .nav-logo{
   width: 100px;
 }
-.card{
+.kart{
   display: flex;
   gap: 30px;
   align-items: center;
@@ -54,7 +54,7 @@ a{
 }
 .coeur{
   font-size: 22px;
-  color: white;
+  color: hsl(261, 83%, 59%);
   cursor: pointer;
 }
 .shop{

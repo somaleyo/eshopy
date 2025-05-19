@@ -9,12 +9,13 @@ export default function Stock(props) {
                 <div className="card-body">
                     <h3>{props.title}</h3>
                     <h4>{props.prix}</h4>
-                    <h5>{props.stock}</h5>
-                    <p>{props.description}</p>
-                    <button className="btn btn-card">
-                        Add to Card
-                    </button>
-                    <FontAwesomeIcon icon={props.font}/>
+                    <p className='card-text'>{props.description}</p>
+                    <div className="bottom-card">
+                        <h5>Il reste {props.stock} Pièces</h5>                    
+                        <button className="btn btn-card">Add to Card</button>
+                        <FontAwesomeIcon icon={props.font}/>
+                    </div>
+                   
                 </div>
             </div>
         </>
