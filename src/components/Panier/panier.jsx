@@ -35,7 +35,7 @@ export default function Panier(props) {
                                             <span className="quantity">Quantité: {article.quantite}</span>
                                             <button 
                                                 className="btn-quantity"
-                                                onClick={() => props.onAjouter && props.onAjouter(article.id)}
+                                                onClick={() => props.onAjouter(article.id)}
                                             >
                                                 <FontAwesomeIcon icon={faPlus} />
                                             </button>

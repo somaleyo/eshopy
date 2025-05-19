@@ -16,7 +16,7 @@ function App() {
   const [articles, setArticles] = useState([
     {
       id: 1,
-      image: {sbr1},
+      image: sbr1,
       title: "JoJo's Bizarre Adventure: SBR-1",
       prix: '11,99$',
       prixNum: 11.99,
@@ -25,20 +25,20 @@ function App() {
     },
     {
       id: 2,
-      image: {sbr11},
+      image: sbr11,
       title: "JoJo's Bizarre Adventure: SBR-11",
       prix: '11,99$',
       prixNum: 11.99,
-      stock: 10,
+      stock: 5,
       description: "L'attaque du mystérieux manieur de stand invisible accule Jayro et ses compagnons. Coincé dans un cul de sac, Johnny est désemparé. C'est alors que Jayro lui transmet une nouvelle technique de 'rotation'. La nature de leur ennemi se dévoile enfin..."
     },
     {
       id: 3,
-      image: {sbr13},
+      image: sbr13,
       title: "JoJo's Bizarre Adventure: SBR-13",
       prix: '11,99$',
       prixNum: 11.99,
-      stock: 9,
+      stock: 3,
       description: "Lucie a décidé de s'emparer de la partie coeur du cadavre du président de l'État. Elle se rapproche de la femme de ce dernier, Skarlet, et réussit à pénétrer dans la résidence gouvernementale. Déguisée en première dame grâce à la faculté de Hot Pants, elle se trouve dangereusement proche du président. Arrivera-t-elle a obtenir son coeur ?"
     }
   ])
@@ -53,38 +53,71 @@ function App() {
   const [favoris, setFavoris] = useState([])
 
   // Fonction pour ajouter au panier
-  const ajouterAuPanier = (articleId) => {
-    const article = articles.find(a => a.id === articleId)
-    if (article && article.stock > 0) {
-      // Diminuer le stock
-      setArticles(prevArticles => 
-        prevArticles.map(a => 
-          a.id === articleId ? { ...a, stock: a.stock - 1 } : a
-        )
-      )
+  // const ajouterAuPanier = (articleId) => {
+  //   const article = articles.find(a => a.id === articleId)
+  //   if (article && article.stock > 0) {
+  //     // Diminuer le stock
+  //     setArticles(prevArticles => 
+  //       prevArticles.map(a => 
+  //         a.id === articleId ? { ...a, stock: a.stock - 1 } : a
+  //       )
+  //     )
       
-      // Ajouter au panier
-      setPanier(prevPanier => {
-        const articleExistant = prevPanier.find(item => item.id === articleId)
-        if (articleExistant) {
-          return prevPanier.map(item =>
-            item.id === articleId ? { ...item, quantite: item.quantite + 1 } : item
-          )
-        } else {
-          return [...prevPanier, { 
-            id: article.id,
-            title: article.title,
-            prix: article.prix,
-            prixNum: article.prixNum,
-            image: article.image,
-            quantite: 1 
-          }]
-        }
-      })
-    }
-  }
+  //     // Ajouter au panier
+  //     setPanier(prevPanier => {
+  //       const articleExistant = prevPanier.find(item => item.id === articleId)
+  //       if (articleExistant) {
+  //         return prevPanier.map(item =>
+  //           item.id === articleId ? { ...item, quantite: item.quantite + 1 } : item
+  //         )
+  //       } else {
+  //         return [...prevPanier, { 
+  //           id: article.id,
+  //           title: article.title,
+  //           prix: article.prix,
+  //           prixNum: article.prixNum,
+  //           image: article.image,
+  //           quantite: 1 
+  //         }]
+  //       }
+  //     })
+  //   }
+  // }
+const ajouterAuPanier = (articleId) => {
+  const article = articles.find(a => a.id === articleId)
+  if (article && article.stock > 0 && argent >= article.prixNum) {
+    // Déduire l'argent
+    setArgent(prev => prev - article.prixNum)
 
+    // Diminuer le stock
+    setArticles(prevArticles => 
+      prevArticles.map(a => 
+        a.id === articleId ? { ...a, stock: a.stock - 1 } : a
+      )
+    )
+
+    // Ajouter au panier
+    setPanier(prevPanier => {
+      const articleExistant = prevPanier.find(item => item.id === articleId)
+      if (articleExistant) {
+        return prevPanier.map(item =>
+          item.id === articleId ? { ...item, quantite: item.quantite + 1 } : item
+        )
+      } else {
+        return [...prevPanier, { 
+          id: article.id,
+          title: article.title,
+          prix: article.prix,
+          prixNum: article.prixNum,
+          image: article.image,
+          quantite: 1 
+        }]
+      }
+    })
+  }
+}
   // Fonction pour retirer un article du panier
+  
   const retirerDuPanier = (articleId) => {
     const articlePanier = panier.find(item => item.id === articleId)
     if (articlePanier && articlePanier.quantite > 0) {
@@ -96,6 +129,7 @@ function App() {
       )
       
       // Retirer du panier
+      setArgent(prev => prev + articlePanier.prixNum)
       setPanier(prevPanier => {
         const nouvelleQuantite = articlePanier.quantite - 1
         if (nouvelleQuantite === 0) {
@@ -172,6 +206,8 @@ function App() {
             title={article.title}
             prix={article.prix}
             stock={article.stock}
+            argent={argent}
+            prixNum={article.prixNum}
             description={article.description}
             onAddToCart={() => ajouterAuPanier(article.id)}
             onToggleFavoris={() => toggleFavori(article.id)}
@@ -185,6 +221,7 @@ function App() {
         articles={panier}
         onRetirer={retirerDuPanier}
         onSupprimer={supprimerDuPanier}
+        onAjouter={ajouterAuPanier}
       />
       
       <footer>
