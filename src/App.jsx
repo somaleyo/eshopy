@@ -52,37 +52,7 @@ function App() {
   // État des favoris
   const [favoris, setFavoris] = useState([])
 
-  // Fonction pour ajouter au panier
-  // const ajouterAuPanier = (articleId) => {
-  //   const article = articles.find(a => a.id === articleId)
-  //   if (article && article.stock > 0) {
-  //     // Diminuer le stock
-  //     setArticles(prevArticles => 
-  //       prevArticles.map(a => 
-  //         a.id === articleId ? { ...a, stock: a.stock - 1 } : a
-  //       )
-  //     )
-      
-  //     // Ajouter au panier
-  //     setPanier(prevPanier => {
-  //       const articleExistant = prevPanier.find(item => item.id === articleId)
-  //       if (articleExistant) {
-  //         return prevPanier.map(item =>
-  //           item.id === articleId ? { ...item, quantite: item.quantite + 1 } : item
-  //         )
-  //       } else {
-  //         return [...prevPanier, { 
-  //           id: article.id,
-  //           title: article.title,
-  //           prix: article.prix,
-  //           prixNum: article.prixNum,
-  //           image: article.image,
-  //           quantite: 1 
-  //         }]
-  //       }
-  //     })
-  //   }
-  // }
+  
 const ajouterAuPanier = (articleId) => {
   const article = articles.find(a => a.id === articleId)
   if (article && article.stock > 0 && argent >= article.prixNum) {
@@ -119,29 +89,31 @@ const ajouterAuPanier = (articleId) => {
   // Fonction pour retirer un article du panier
   
   const retirerDuPanier = (articleId) => {
-    const articlePanier = panier.find(item => item.id === articleId)
-    if (articlePanier && articlePanier.quantite > 0) {
-      // Remettre en stock
-      setArticles(prevArticles => 
-        prevArticles.map(a => 
-          a.id === articleId ? { ...a, stock: a.stock + 1 } : a
-        )
+  const articlePanier = panier.find(item => item.id === articleId)
+  if (articlePanier && articlePanier.quantite > 0) {
+    // Rembourser le prix de l'article
+    setArgent(prev => prev + articlePanier.prixNum)
+
+    // Remettre en stock
+    setArticles(prevArticles => 
+      prevArticles.map(a => 
+        a.id === articleId ? { ...a, stock: a.stock + 1 } : a
       )
-      
-      // Retirer du panier
-      setArgent(prev => prev + articlePanier.prixNum)
-      setPanier(prevPanier => {
-        const nouvelleQuantite = articlePanier.quantite - 1
-        if (nouvelleQuantite === 0) {
-          return prevPanier.filter(item => item.id !== articleId)
-        } else {
-          return prevPanier.map(item =>
-            item.id === articleId ? { ...item, quantite: nouvelleQuantite } : item
-          )
-        }
-      })
-    }
+    )
+
+    // Retirer du panier
+    setPanier(prevPanier => {
+      const nouvelleQuantite = articlePanier.quantite - 1
+      if (nouvelleQuantite === 0) {
+        return prevPanier.filter(item => item.id !== articleId)
+      } else {
+        return prevPanier.map(item =>
+          item.id === articleId ? { ...item, quantite: nouvelleQuantite } : item
+        )
+      }
+    })
   }
+}
 
   // Fonction pour supprimer complètement un article du panier
   const supprimerDuPanier = (articleId) => {
