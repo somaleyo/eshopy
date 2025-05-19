@@ -3,5 +3,27 @@ body{
   background-color: hsl(265, 30%, 20%);
   color: white;
   font-family: "Rubik";
+  width: 90%;
+  margin-left: 75px;
 
+}
+.bg-header{
+  width: 90%;
+  filter: grayscale(1);
+  height: 300px;
+  opacity: 0.6;
+  position: absolute;
+  top:0;
+  z-index: -1;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header h1{
+  font-size: 40px;
+  font-style: italic;
 }
