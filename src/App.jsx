@@ -7,7 +7,8 @@ function App() {
 
   return (
     <>
-    
+      <div className="header"></div>
+      <h1>JOJO NO KIMYOU NA BOUKEN</h1>
     </>
   )
 }
