@@ -16,6 +16,7 @@
     font-style: italic;
 }
 .card{
+        transition:0.4s;
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -52,4 +53,12 @@ h5{
     font-weight: 400;
     color: hsl(264, 92%, 57%);
     font-size: 14px;
+}
+.card:hover{
+    transform: scale(1.05);
+
+}
+.btn:hover{
+    cursor: pointer;
+    opacity: 0.8;
 }
