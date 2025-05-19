@@ -169,12 +169,12 @@ footer p{
 .article-text h3 {
     margin: 0 0 8px 0;
     font-size: 1.1em;
-    color: #333;
+    color: white;
 }
 
 .article-text h4 {
     margin: 0 0 8px 0;
-    color: #007bff;
+    color: hsl(264, 92%, 57%);
     font-weight: bold;
 }
 
@@ -191,7 +191,7 @@ footer p{
 }
 
 .btn-quantity {
-    background-color: #007bff;
+    background-color: #263340;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -201,7 +201,7 @@ footer p{
 }
 
 .btn-quantity:hover {
-    background-color: #0056b3;
+    background-color: #717a83;
 }
 
 .quantity {
@@ -218,6 +218,7 @@ footer p{
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s;
+    width: 80px;
 }
 
 .btn-supprimer:hover {
@@ -232,7 +233,7 @@ footer p{
 .article-total h6 {
     margin: 0;
     font-size: 1.1em;
-    color: #28a745;
+    color: hsl(264, 92%, 57%);
     font-weight: bold;
 }
 
@@ -242,14 +243,14 @@ footer p{
 }
 
 .panier-total h3 {
-    color: #28a745;
+    color: hsl(264, 92%, 57%);
     font-size: 1.5em;
     margin: 15px 0;
 }
 
 .btn-commander {
-    background-color: #28a745;
-    color: white;
+    background-color: hsla(264, 53%, 39%, 0.67);
+    color: hsl(264, 92%, 57%);
     border: none;
     padding: 12px 30px;
     border-radius: 8px;

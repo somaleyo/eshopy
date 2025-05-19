@@ -8,3 +8,10 @@
     background-color: transparent;
     color: white  ;
 }
+h6{
+    color: black;
+}
+
+.articles h6 {
+    column-rule: black;
+}
