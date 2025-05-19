@@ -1,7 +1,9 @@
 .card-container{
-    margin-top: 150px;
+    margin-top: 180px;
     display: flex;
     gap: 35px;
+    margin-left:  80px;
+    margin-right:  80px;
     
 }
 .card-text{
@@ -11,6 +13,7 @@
     margin: 0;
     margin-bottom: 10px;
     margin-left: 35px;
+    font-style: italic;
 }
 .card{
     display: flex;
@@ -21,7 +24,7 @@
     border-radius: 15px;
     text-align: center;
     background-color: transparent;
-    height: 620px;
+    height: 630px;
     
 }
 .img-card{

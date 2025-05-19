@@ -3,8 +3,10 @@ body{
   background-color: hsl(265, 30%, 20%);
   color: white;
   font-family: "Rubik";
-  width: 90%;
-  margin-left: 75px;
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  
 
 }
 .bg-header{
@@ -31,8 +33,9 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right:30px ;
-  margin-left: 30px;
+  margin-right:120px ;
+  margin-left: 120px;
+  
 }
 .nav-main{
   display: flex;
@@ -64,3 +67,202 @@ a{
 p{
   font-size: 18px;
 }
+
+footer{
+  background-color: hsla(244, 93%, 6%, 0.61);
+  
+  padding: 15px;
+  margin-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  
+}
+hr{
+  width: 500px;
+  margin-left: 10px;
+  margin-top: 1px;
+}
+footer p{
+  font-size: 16px;
+  width: 1300px;
+  font-style: italic;
+}
+/* Styles pour le stock */
+.stock-zero {
+    color: red;
+    font-weight: bold;
+}
+
+.btn-disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-disabled:hover {
+    background-color: #ccc;
+    transform: none;
+}
+
+.favoris-active {
+    color: red;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.favoris-inactive {
+    color: #ccc;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.favoris-active:hover,
+.favoris-inactive:hover {
+    transform: scale(1.2);
+}
+
+/* Styles pour le panier */
+.panier {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.panier-content {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.panier-vide {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+.articles {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.article-img {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+
+.article-text {
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+.article-text h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.article-text h4 {
+    margin: 0 0 8px 0;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.article-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-quantity {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-quantity:hover {
+    background-color: #0056b3;
+}
+
+.quantity {
+    font-weight: bold;
+    min-width: 100px;
+    text-align: center;
+}
+
+.btn-supprimer {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-supprimer:hover {
+    background-color: #c82333;
+}
+
+.article-total {
+    min-width: 120px;
+    text-align: right;
+}
+
+.article-total h6 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.panier-total {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.panier-total h3 {
+    color: #28a745;
+    font-size: 1.5em;
+    margin: 15px 0;
+}
+
+.btn-commander {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-commander:hover {
+    background-color: #218838;
+}
+.last-stock{
+  color: rgb(255, 166, 0);
+}
+
