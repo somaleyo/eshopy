@@ -5,14 +5,33 @@ import Stock from './components/Stock/stock'
 import sbr1 from '/src/assets/images/sbr1.webp'
 import sbr11 from '/src/assets/images/sbr11.webp'
 import sbr13 from '/src/assets/images/sbr13.webp'
+import jojologo from '/src/assets/images/jojo-logo.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+  import {faBasketShopping, faHeart } from '@fortawesome/free-solid-svg-icons'
 function App() {
+
 
 
   return (
     <>
 
- 
+      <nav>
+        <div className="nav-icon">
+          <img src={jojologo} className="nav-logo" alt="" />
+        </div>
+        <div className="nav-main">
+        <p><a href="">FAQ</a></p>
+        <p><a href="">Follow</a></p>
+        <p><a href="">Scan</a></p>
+        </div>
+        <div className="card">
+        <FontAwesomeIcon icon={faBasketShopping} />
+        <p>0</p>
+
+        <FontAwesomeIcon icon={faHeart} />
+        <p>0</p>
+        </div>
+      </nav>
       <div className="header">
         <h1>JOJO NO KIMYOU NA BOUKEN</h1>
         <img className='bg-header' src={jojobg} alt="" />
@@ -22,7 +41,7 @@ function App() {
         Les participants doivent chevaucher de San Diego Beach à New York, 
         ce qui équivaut à un périple de 6 000 kilomètres, sans jamais changer de monture !
         À la clef pour le grand vainqueur : un prix de 50 millions de dollars !
-         Bien des aventuriers sont prêts à tout pour une telle somme !"/>
+         Bien des aventuriers sont prêts à tout pour une telle somme !" font={faHeart}/>
 
         <Stock image={sbr11} title="JoJo's Bizarre Adventure: SBR-11"  prix='11,99$'stock="10"description="L'attaque du mystérieux manieur de stand invisible accule Jayro et ses compagnons. 
         Coincé dans un cul de sac, Johnny est désemparé. 
@@ -33,7 +52,7 @@ function App() {
         Elle se rapproche de la femme de ce dernier, Skarlet, et réussit à pénétrer dans la résidence gouvernementale. 
         Déguisée en première dame grâce à la faculté de Hot Pants, elle se trouve dangereusement proche du président.
          Arrivera-t-elle a obtenir son coeur ?"/>
-         
+
       </div>
     </>
   )

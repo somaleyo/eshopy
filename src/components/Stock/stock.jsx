@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './stock.css'
 
 export default function Stock(props) {
@@ -13,6 +14,7 @@ export default function Stock(props) {
                     <button className="btn btn-card">
                         Add to Card
                     </button>
+                    <FontAwesomeIcon icon={props.font}/>
                 </div>
             </div>
         </>
